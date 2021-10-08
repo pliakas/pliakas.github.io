@@ -1,6 +1,9 @@
 ---
 layout: post
+<<<<<<< HEAD
 title: JDK 12: The `Collector::teeing()` collector.
+=======
+>>>>>>> 2835394c755e8652d03493e791e69d755b3ce022
 comments: true
 tags: [java]
 ---
@@ -19,7 +22,11 @@ More information about `Collector::teeing()` can be found [here](https://docs.or
 
 The two collecctors are operating in the same stream of type `T` and produce different results `R1`and `R2`. The the merger function using these two results to produce a final result type of `R` using BiFunction functional interface. This new feature provide the posibility collect element using two collectors (even re-using existing collectors) and produce result out of these two collectors' results. 
 
+<<<<<<< HEAD
 A `Collectors::teeing()` is a **Concurrent** and/or **Unordered**, if both collectors are and does not has any **Identity_Finish** since always must merge teh resultgs of the used Collectors. 
+=======
+A `Collectors::teeing()` is a **Concurrent** and/or **Unordered**, if both collectors are and does not has any **Identity_Finish** since always must merge teh results of the used Collectors. 
+>>>>>>> 2835394c755e8652d03493e791e69d755b3ce022
 
 ## Example 1 ###
 Assuming that you want to collect the longest and shorted words out of a stream of words.
