@@ -1,0 +1,44 @@
+author1:
+  name:              Thomas Pliakas
+  email:             tpliakas@gmail.com
+
+  about:             |
+      This blog explores a variety of topics that I've stumbled across in my journey as a software developer. Even though mostly written for my own understanding, my hope is that the curious programmer finds my writings entertaining.
+
+  # This photo will be used in the about section.
+  #picture:
+      #path:            https://placehold.it/128x128
+      #path:
+    # srcset is optional, but can be used to provide higher res versions for retina displays
+    #srcset:
+    #1x:            https://placehold.it/128x128
+    #2x:            https://placehold.it/256x256
+
+  # Social media icons in sidebar.
+  # Comment/uncommet to show/hide. Rearrange to change the order in which they appear.
+  social:
+    twitter:         tpliakas
+    github:          pliakas
+    email:           mailto:<tpliakas@gmail.com>
+    linkedin:        thomas-pliakas
+
+# Another author
+author2:
+  name:              <firtname> <lastname>
+  email:             <mail@domain.tld>
+  about:             |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+    Open `_data/authors.yml` to edit this text.
+  picture:           https://placehold.it/128x128
+  twitter:           <username>
+  github:            <username>
+
+  # Every author can have his/her own accent color and image.
+  # This will change the appearance of all pages of this author.
+  accent_color:      '#268bd2'
+  accent_image:
+    background:      '#202020'
+    overlay:         false
