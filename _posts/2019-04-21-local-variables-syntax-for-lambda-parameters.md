@@ -1,5 +1,6 @@
 ---
 layout: post
+title: JDK 11: Local variable syntac
 comments: true
 tags: [java]
 ---
