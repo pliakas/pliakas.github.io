@@ -160,7 +160,8 @@ plugins:
 # ---------------------------------------------------------------------------------------
 
 # theme: jekyll-theme-hydejack
-remote_theme: qwtel/hydejack@gem-9.1.4
+remote_theme: qwtel/hydejack@gem-7.5.0
+
 
 
 # SEO Tag
