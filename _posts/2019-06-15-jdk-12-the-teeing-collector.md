@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JDK 12: The `Collector::teeing()` collector.
+title: JDK 12: The Collector::teeing() collector.
 comments: true
 tags: [java]
 ---
