@@ -6,7 +6,7 @@ layout: list
 title: Build Systems
 
 # The name of the tag, used in a post's front matter (e.g. tags: [<slug>]).
-slug: maven, gradle
+slug: maven,gradle
 
 # Setting `menu` will generate an entry in the sidebar for this tag.
 menu: true
