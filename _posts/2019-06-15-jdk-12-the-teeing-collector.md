@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jdk11 - The Collector::teeing() collector explained
+title: JDK12 - The Collector::teeing() collector explained
 comments: true
 tags: [java]
 ---
