@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JDK 11: Local variable syntac
+title: JDK12 - Local variables syntax for lambda parameters 
 comments: true
 tags: [java]
 ---
