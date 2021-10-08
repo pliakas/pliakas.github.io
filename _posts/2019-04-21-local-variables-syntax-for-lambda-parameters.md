@@ -2,7 +2,7 @@
 layout: post
 title: JDK12 - Local variables syntax for lambda parameters 
 comments: true
-tags: [java]
+tags: [java,jdk11]
 ---
 One of 90 features that have been introduced in JDK 11, is the support of the local variables as lambda parameters. This features was described in [JEP-323: Local-Variables-Syntac for Lambda Parameters](https://openjdk.java.net/jeps/323) and can be considered as an extension of [JEP-286: Local-Variable Type Inference](http://openjdk.java.net/jeps/286). Now, the developes does not longer need to explicitly state the type of a local-variable but instead, use `var` as depicted in the code exceprt below, since it extends the use of this syntax to the parameters of Lambda expressions. 
 

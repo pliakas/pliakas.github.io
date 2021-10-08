@@ -1,8 +1,8 @@
 ---
 layout: post
-title: JDK 12: The Collector::teeing() collector.
+title: JDK12 - The Collector::teeing() collector.
 comments: true
-tags: [java]
+tags: [java,jdk12]
 ---
 
 In JDK12, a new feature (out for 32) in the Stream API has been introduced and is a new collector, called `teeing()` which is provided by the Collectors utility class. The `teeing()` collector takes takes three arguments, two Collectors and a BiFunction for merging the results from the two collectors. The full story behind this new feature can be found [here](https://bugs.openjdk.java.net/browse/JDK-8209685 "teeing() collector history"). 
