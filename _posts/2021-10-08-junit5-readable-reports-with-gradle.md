@@ -83,7 +83,7 @@ By extending more the `testLogging()`, I have created a better view of skipped a
 
 ~~~
 
-I spent a whole day, reading and searching in various sites (including JUNIT5 documentation and gradle, and finally I end up with a better solution that the console output was improved and very close to the expecting result. So I end up with a better script that met my requirements. 
+I spent a whole day, reading and searching in various sites (including JUNIT5 documentation and gradle, and finally I end up with a better solution that the console output was improved and very close to the expecting result. The initial solution has been found [in this post](https://technology.lastminute.com/junit5-kotlin-and-gradle-dsl/). So I end up with a better script that met my requirements.
 
 The gradle.build.kts was somehow more complicated, as shown below: 
 
@@ -207,5 +207,7 @@ Test summary: 8 tests, 6 succeeded, 1 failed, 1 skipped
 ################ Summary::End ##################
 
 ~~~
+
+As you can see there is a better report after completing the tests showing which tests are skipped/passed/failing. Connecting this to a CI you can easily identifying which tests are failing really quickly and you can parse this output to send it to a report tool. You can comment out the parts that you are not interested and fully customize the output according to your preferences. 
 
 You can find a sample project with the gradle configuration [here](https://github.com/pliakas/junit5-gradle-kotlin-template).
