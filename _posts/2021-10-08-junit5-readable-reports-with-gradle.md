@@ -64,22 +64,23 @@ And now the output was better, but still was a room of significant improvement.
 ~~~sh
 ╭─pliakas@tomato ~/Projects/opensource/roukou/junit5-gradle-kotlin-template 
 ╰─$ ./gradlew test
-Task :test
-HelperTest > Get all classes from Arraylist.class PASSED
 
+Calculator :: Addition Tests > Simple Addition (ignored for demo reasons) SKIPPED
 Calculator :: Addition Tests > Multiple additions > org.roukou.junit5.CalculatorTest$AdditionTests.add(int, int, int)[1] PASSED
-
 Calculator :: Addition Tests > Multiple additions > org.roukou.junit5.CalculatorTest$AdditionTests.add(int, int, int)[2] PASSED
-
 Calculator :: Addition Tests > Multiple additions > org.roukou.junit5.CalculatorTest$AdditionTests.add(int, int, int)[3] PASSED
-
 Calculator :: Addition Tests > Multiple additions > org.roukou.junit5.CalculatorTest$AdditionTests.add(int, int, int)[4] PASSED
+Calculator :: Addition Tests > Failing test on puporse (for demo reasons FAILED
+    org.opentest4j.AssertionFailedError at CalculatorTest.kt:44
+HelperTest > Get all classes from Arraylist.class PASSED
+Calculator :: Division Tests > Divide by zero PASSED
+8 tests completed, 1 failed, 1 skipped
+~~~
 
-Calculator :: Addition Tests > 1 + 1 = 2() PASSED
+By extending more the `testLogging()`, I have created a better view of skipped and failing tests. You can see the changes in the code below: 
 
-Calculator :: Division Tests > Divition by zero PASSED
-BUILD SUCCESSFUL in 1s
-5 actionable tasks: 1 executed, 4 up-to-date
+~~~kotlin
+
 ~~~
 
 I spent a whole day, reading and searching in various sites (including JUNIT5 documentation and gradle, and finally I end up with a better solution that the console output was improved and very close to the expecting result. So I end up with a better script that met my requirements. 
@@ -92,13 +93,14 @@ The gradle.build.kts was somehow more complicated, as shown below:
 
         testLogging {
             lifecycle {
-                events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
+                events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent
+                    .SKIPPED)
                 exceptionFormat = TestExceptionFormat.FULL
 
                 showExceptions = true
                 showCauses = true
-                showStackTraces = true
-                showStandardStreams = true
+                showStackTraces = false
+                showStandardStreams = false
             }
             info.events = lifecycle.events
             info.exceptionFormat = lifecycle.exceptionFormat
@@ -121,8 +123,8 @@ The gradle.build.kts was somehow more complicated, as shown below:
             }
 
             override fun afterSuite(suite: TestDescriptor, result: TestResult) {
-                if (suite.parent == null) { // root suite
-                    logger.lifecycle("----")
+                if (suite.parent == null) {
+                    logger.lifecycle("################ Summary::Start ################")
                     logger.lifecycle("Test result: ${result.resultType}")
                     logger.lifecycle(
                         "Test summary: ${result.testCount} tests, " +
@@ -131,6 +133,7 @@ The gradle.build.kts was somehow more complicated, as shown below:
                                 "${result.skippedTestCount} skipped")
                     failedTests.takeIf { it.isNotEmpty() }?.prefixedSummary("\tFailed Tests")
                     skippedTests.takeIf { it.isNotEmpty() }?.prefixedSummary("\tSkipped Tests:")
+                    logger.lifecycle("################ Summary::End ##################")
                 }
             }
 
@@ -173,7 +176,36 @@ Test summary: 7 tests, 6 succeeded, 0 failed, 1 skipped
                 org.roukou.junit5.CalculatorTest$AdditionTests - 1 + 1 = 2()
 
 BUILD SUCCESSFUL in 1s
-5 actionable tasks: 1 executed, 4 up-to-date
+5 actionable tasks: 1 executed, 4 up-to-date╭─pliakas@tomato ~/Projects/opensource/roukou/junit5-gradle-kotlin-template ‹main*› 
+╰─$ ./gradlew test
+
+> Task :test FAILED
+
+Calculator :: Addition Tests > Simple Addition (ignored for demo reasons) SKIPPED
+
+Calculator :: Addition Tests > Multiple additions > org.roukou.junit5.CalculatorTest$AdditionTests.add(int, int, int)[1] PASSED
+
+Calculator :: Addition Tests > Multiple additions > org.roukou.junit5.CalculatorTest$AdditionTests.add(int, int, int)[2] PASSED
+
+Calculator :: Addition Tests > Multiple additions > org.roukou.junit5.CalculatorTest$AdditionTests.add(int, int, int)[3] PASSED
+
+Calculator :: Addition Tests > Multiple additions > org.roukou.junit5.CalculatorTest$AdditionTests.add(int, int, int)[4] PASSED
+
+Calculator :: Addition Tests > Failing test on puporse (for demo reasons FAILED
+    org.opentest4j.AssertionFailedError: 2 + 3 should equal to 5 ==> expected: <3> but was: <5>
+
+HelperTest > Get all classes from Arraylist.class PASSED
+
+Calculator :: Division Tests > Divide by zero PASSED
+################ Summary::Start ################
+Test result: FAILURE
+Test summary: 8 tests, 6 succeeded, 1 failed, 1 skipped
+        Failed Tests
+                org.roukou.junit5.CalculatorTest$AdditionTests - simpleFailedAddition()
+        Skipped Tests:
+                org.roukou.junit5.CalculatorTest$AdditionTests - simpleAddition()
+################ Summary::End ##################
+
 ~~~
 
 You can find a sample project with the gradle configuration [here](https://github.com/pliakas/junit5-gradle-kotlin-template).
