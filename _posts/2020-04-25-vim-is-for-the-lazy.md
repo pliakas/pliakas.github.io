@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Vim - Advanced Text Editing For The Lazy
+title: Emacs - Advanced Text Editing For The Lazy
 comments: true
 tags: [emacs]
 ---
 
-This is a very first article
+This is a very first article about emacs
