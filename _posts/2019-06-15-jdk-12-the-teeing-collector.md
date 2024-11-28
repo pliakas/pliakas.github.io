@@ -5,9 +5,9 @@ comments: true
 tags: [java]
 ---
 
-In JDK12, a new feature (out for 32) in the Stream API has been introduced and is a new collector, called `teeing()` which is provided by the Collectors utility class. The `teeing()` collector takes takes three arguments, two Collectors and a BiFunction for merging the results from the two collectors. The full story behind this new feature can be found [here](https://bugs.openjdk.java.net/browse/JDK-8209685 "teeing() collector history"). 
+In JDK12, a new feature (out for 32) in the Stream API has been introduced and is a new collector, called `teeing()` which is provided by the Collectors utility class. The `teeing()` collector takes takes three arguments, two Collectors and a BiFunction for merging the results from the two collectors. The full story behind this new feature can be found [here](https://bugs.openjdk.java.net/browse/JDK-8209685 "teeing() collector history").
 
-The `teeing()` collector takes three arguments, as a typical collector, as shown in the method signature below: 
+The `teeing()` collector takes three arguments, as a typical collector, as shown in the method signature below:
 
 ~~~java
 public static <T, R1, R2, R>
@@ -17,7 +17,7 @@ public static <T, R1, R2, R>
 ~~~
 More information about `Collector::teeing()` can be found [here](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/stream/Collectors.html "Collectors::teeing javadoc").
 
-The two collecctors are operating in the same stream of type `T` and produce different results `R1`and `R2`. The the merger function using these two results to produce a final result type of `R` using BiFunction functional interface. This new feature provide the posibility collect element using two collectors (even re-using existing collectors) and produce result out of these two collectors' results. 
+The two collecctors are operating in the same stream of type `T` and produce different results `R1`and `R2`. The the merger function using these two results to produce a final result type of `R` using BiFunction functional interface. This new feature provide the posibility collect element using two collectors (even re-using existing collectors) and produce result out of these two collectors' results.
 
 A `Collectors::teeing()` is a **Concurrent** and/or **Unordered**, if both collectors are and does not has any **Identity_Finish** since always must merge teh resultgs of the used Collectors. 
 
