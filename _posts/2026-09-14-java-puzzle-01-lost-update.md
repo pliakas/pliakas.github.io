@@ -6,9 +6,9 @@ tags: [java-puzzles, java, concurrency]
 ---
 
 Kicking off a new series here: **Java Puzzles**. Every week I'll drop one of
-the puzzles from my [conference talk repo](https://github.com/pliakas/java-puzzles)
-here — a single self-contained `.java` file with a surprising runtime
-behavior. Guess the answer, run it yourself, then check the solution below.
+the puzzles from my conference talk repo here — a single self-contained
+`.java` file with a surprising runtime behavior. Guess the answer, run it
+yourself, then check the solution below.
 
 Nastiness: `P4` — warm-up, everyone survives.
 
